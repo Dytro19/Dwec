@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel, Tijeras</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div id="vidas">
+        <img src="Imagenes/vida.png" alt="vida" id="vida1" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida2" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida3" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida4" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida5" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida6" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida7" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida8" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida9" >
+        <img src="Imagenes/vida.png" alt="vida" id="vida10" >
+    </div>
+    <div>  
+        <div>
+            <img src="Imagenes/piedra.png" alt="Piedra" onclick="entrada(0)" id="piedra">
+            <img src="Imagenes/papel.png" alt="Papel" onclick="entrada(1)" id="papel">
+            <img src="Imagenes/tijeras.png" alt="Tijera" onclick="entrada(2)" id="tijera">
+        </div>
+        <div>
+            <img src="" id="player">
+            <p id="resultado">0</p>
+            <img src="" id="bot">
+        </div>
+        <div>
+            <img src="Imagenes/piedra.png" alt="Piedra" id="piedrabot">
+            <img src="Imagenes/papel.png" alt="Papel" id="papelbot">
+            <img src="Imagenes/tijeras.png" alt="Tijera" id="tijerabot">
+        </div>
+    </div>
+    <div id="pantalla-final">
+        <button onclick="reiniciarJuego()">Reiniciar</button>
+    </div>
+    
+    <script src="aleatorio.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+body{
+    text-align: -webkit-center;
+}
+
+button{
+    background-color: #f0a000;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 10px;
+    border: 0px;    
+}
+
+#botones{
+    margin: 7.5px;
+    background-color: #f0a000;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#inicio{
+    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    background-color: #ffdc96;
+    border-radius: 15px;
+    width: 500px;
+}
+#resultado{
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #ffdc96;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#parrafo{
+    padding: 5px;
+    background-color: white;
+    border: 5px;
+    border-radius: 15px;
+}

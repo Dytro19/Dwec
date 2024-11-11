@@ -1,0 +1,1 @@
+console.log(`En la \u{1f30D} sabana, un pequeño león `)

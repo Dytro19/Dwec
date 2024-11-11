@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li>
+       <p id="Lunes">Lunes</p>      
+    </li>
+    <li>
+        <p id="Martes">Martes</p>
+    </li>
+    <button type="button" onclick="mifuncion()">Dale</button>
+
+    <script>
+        function mifuncion(){
+            var x=document.getElementById("Lunes");
+            var y=document.getElementById("Martes");
+
+            x.style.color="#0000FF";
+            x.innerHTML="Blau";
+            y.style.color="#ff0000";
+            y.innerHTML="Grana";
+        }
+    </script>
+
+</body>
+</html>

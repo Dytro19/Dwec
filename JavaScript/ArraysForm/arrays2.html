@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="imprime()">
+    
+    <div id="inicio">
+        <h1>Arrays</h1>
+        <p>Agrega un Juego </p>
+
+        <input id="input"><br><br>
+        <div id="botones">
+            <button onclick="añadir_principio()">Añadir Principio</button><br>
+        </div>
+        <div id="botones">
+            <button onclick="añadir_final()">Añadir final</button><br>
+        </div>
+        <div id="botones">
+            <button onclick="quitar_principio()">Quitar Principio</button><br>
+        </div>
+        <div id="botones">
+            <button onclick="quitar_final()">Quitar Final</button><br>
+        </div>
+        <div id="botones">
+            <button onclick="ordena()">Ordenar</button><br>
+        </div>
+    </div>
+        
+    <div id="resultado">
+        <p id="parrafo"></p>
+    </div>
+    
+
+    <script src="arrays2.js"></script> 
+    
+</body>
+</html>
