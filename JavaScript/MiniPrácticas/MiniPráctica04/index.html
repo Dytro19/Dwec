@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MiniPráctica04-DTR</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -21,14 +21,25 @@
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
-
-        input[type="date"] {
+        div{
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 5px;
+        }
+        input[type="date"],
+        select {
             padding: 10px;
             font-size: 1rem;
             border: 1px solid #ced4da;
             border-radius: 5px;
             margin-bottom: 20px;
+            background-color: #ced4da;
         }
+        
 
         #distancia {
             font-size: 1.5rem;
@@ -49,15 +60,33 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        #distancia{
+            background-color: #ced4da;       
+        }
     </style>
 </head>
-<body>
-    <p>Introduce una fecha</p>
-    <input type="date" value="" id="fecha">
-    <p>Tiempo transcurrido desde/hasta la fecha seleccionada</p>
-    <p id="distancia"></p>
-    <button id="boton">Mostrar Tiempo</button>
+<body id="body">
+    <div>
+        <div>
+            <p>Introduce una fecha</p>
+            <input type="date" value="" id="fecha">
+            <p>Tiempo transcurrido desde/hasta la fecha seleccionada</p>
 
+            <div id="distancia">
+
+            </div>
+            <button id="boton">Mostrar Tiempo</button>
+        </div>
+        <div>
+            <select id="opciones">
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+            </select>
+            <button id="viajar">Viajar en el Tiempo</button>
+        </div>
+    </div>
+    
     <script>
         const fecha = document.getElementById("fecha");
         const fechaActual = new Date();
@@ -81,6 +110,22 @@
                 distancia.innerHTML = "Faltan: " + añosFaltan + " años y " + diasRedondos + " días";
             } else {
                 distancia.innerHTML = "Han pasado: " + añosRedondos + " años y " + diasRedondos + " días";
+            }
+        });
+
+        document.getElementById("viajar").addEventListener("click", () => {
+            const opciones = document.getElementById("opciones");
+            const estilo = document.getElementById("body");
+            switch (opciones.value) {
+                case "2020":
+                    estilo.style.backgroundImage = "url('Imagenes/2020.jpg')";
+                    break;
+                case "2019":
+                    estilo.style.backgroundImage = "url('Imagenes/2019.jpg')";
+                    break;
+                default:
+                    estilo.style.backgroundImage = "none";
+                    break;
             }
         });
     </script>
