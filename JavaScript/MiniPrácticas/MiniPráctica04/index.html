@@ -4,12 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        input[type="date"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #distancia {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <style>
-
-    </style>
-
     <p>Introduce una fecha</p>
     <input type="date" value="" id="fecha">
     <p>Tiempo transcurrido desde/hasta la fecha seleccionada</p>
@@ -17,33 +59,30 @@
     <button id="boton">Mostrar Tiempo</button>
 
     <script>
-        fecha=document.getElementById("fecha")
-        
-        fechaActual=new Date()
+        const fecha = document.getElementById("fecha");
+        const fechaActual = new Date();
 
-        document.getElementById("boton").addEventListener("click",()=>{
-            fecha1=new Date(fecha.value)
-            distancia=document.getElementById("distancia")
+        document.getElementById("boton").addEventListener("click", () => {
+            const fecha1 = new Date(fecha.value);
+            const distancia = document.getElementById("distancia");
 
-            diferencia=fechaActual-fecha1
+            const diferencia = fechaActual - fecha1;
 
-            años=diferencia/(1000*60*60*24*365.25)
+            const años = diferencia / (1000 * 60 * 60 * 24 * 365.25);
 
-            añosRedondos=Math.floor(años)
-            añosSobra=años-añosRedondos
-            anosFaltan=Math.floor(-años)
+            const añosRedondos = Math.floor(años);
+            const añosSobra = años - añosRedondos;
+            const añosFaltan = Math.floor(-años);
 
-            dias=añosSobra*365.25
-            diasRedondos=Math.floor(dias)
+            const dias = añosSobra * 365.25;
+            const diasRedondos = Math.floor(dias);
 
-            if(fecha1>fechaActual){
-                distancia.innerHTML="Faltan: "+añosFaltan+" años y "+diasRedondos+" dias"
-
-            }else{
-                distancia.innerHTML="Han pasado: "+añosRedondos+" años y "+diasRedondos+" dias"
+            if (fecha1 > fechaActual) {
+                distancia.innerHTML = "Faltan: " + añosFaltan + " años y " + diasRedondos + " días";
+            } else {
+                distancia.innerHTML = "Han pasado: " + añosRedondos + " años y " + diasRedondos + " días";
             }
-            })        
-        
+        });
     </script>
 </body>
 </html>
