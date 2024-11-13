@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,20 +18,34 @@
     <div id="uno" class="uno"></div>
 
     <script>
+        posX=0
+        posY=0
         document.addEventListener("keydown", (event)=>{
             console.log(event.key)
             console.log(event);
             uno=document.getElementById("uno");
 
             switch(event.key){
-            case "ArrowDown":uno.style.marginTop+="5px";
-            break;
-            case "ArrowLeft":uno.style.marginRight+="5px";
-            break;
-            case "ArrowUp":uno.style.marginBottom+="5px";
-            break;
-            case "ArrowRight":uno.style.marginLeft+="5px";
-            break;
+                case "ArrowRight":
+                case "d":
+                    posX+=10;
+                    uno.style.marginLeft=posX+"px";
+                    break;
+                case "ArrowDown":
+                case "s":
+                    posY+=10;
+                    uno.style.marginTop=posY+"px";
+                    break;
+                case "ArrowLeft":
+                case "a":
+                    posX-=10;
+                    uno.style.marginLeft=posX+"px";
+                    break;
+                case "ArrowUp":
+                case "w":
+                    posY-=10;
+                    uno.style.marginTop=posY+"px";
+                    break;
             }
         });    
     </script>
