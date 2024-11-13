@@ -13,9 +13,37 @@
     <p>Introduce una fecha</p>
     <input type="date" value="" id="fecha">
     <p>Tiempo transcurrido desde/hasta la fecha seleccionada</p>
+    <p id="distancia"></p>
+    <button id="boton">Mostrar Tiempo</button>
 
     <script>
-        fecha=Date()
+        fecha=document.getElementById("fecha")
+        
+        fechaActual=new Date()
+
+        document.getElementById("boton").addEventListener("click",()=>{
+            fecha1=new Date(fecha.value)
+            distancia=document.getElementById("distancia")
+
+            diferencia=fechaActual-fecha1
+
+            años=diferencia/(1000*60*60*24*365.25)
+
+            añosRedondos=Math.floor(años)
+            añosSobra=años-añosRedondos
+            anosFaltan=Math.floor(-años)
+
+            dias=añosSobra*365.25
+            diasRedondos=Math.floor(dias)
+
+            if(fecha1>fechaActual){
+                distancia.innerHTML="Faltan: "+añosFaltan+" años y "+diasRedondos+" dias"
+
+            }else{
+                distancia.innerHTML="Han pasado: "+añosRedondos+" años y "+diasRedondos+" dias"
+            }
+            })        
+        
     </script>
 </body>
 </html>
