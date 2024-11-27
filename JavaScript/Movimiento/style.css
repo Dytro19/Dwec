@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+}
+
+#sprite{
+    background-color: aqua;
+    padding: 15px;
+    width: 5px;
+    height: 5px;
+}
