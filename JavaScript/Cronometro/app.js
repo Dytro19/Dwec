@@ -8,12 +8,12 @@ let mins=0;
 let secs=0;
 
 let intervalo;
-
-start.addEventListener("click", ()=>{
-    if (!intervalo){
+if (!intervalo){
+    start.addEventListener("click", ()=>{
         intervalo=setInterval(()=>{
             secs+=1;        
             imprime();
+            
             if (secs==60){
                 mins+=1;
                 secs=0;
@@ -24,9 +24,9 @@ start.addEventListener("click", ()=>{
                 mins=0;
                 imprime();
             }
-        },1000)
-    }
-})
+        }, 1000 )
+    })
+}
 
 para.addEventListener("click", ()=>{
     clearInterval(intervalo);
@@ -36,14 +36,9 @@ reset.addEventListener("click", ()=>{
     secs=0;
     mins=0;
     hours=0;
-    crono.innerHTML="00:00";
+    imprime();
 })
 
-function imprime(){
-    if (hours>=1){
-        crono.innerHTML=mins.toString().padStart(2,"0")+":"+secs.toString().padStart(2,"0");
-    }
-    else{
-        crono.innerHTML=mins.toString().padStart(2,"0")+":"+secs.toString().padStart(2,"0");
-    }
+function imprime(){   
+    crono.innerHTML=hours.toString().padStart(2,"0")+":"+mins.toString().padStart(2,"0")+":"+secs.toString().padStart(2,"0");
 }

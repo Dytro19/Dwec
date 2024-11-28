@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Digital-7+Mono&display=swap');
+
 body{
     justify-content: center;
     display: flex;
@@ -13,10 +15,8 @@ div{
     border-radius: 25px;
     flex-direction: column;
     box-shadow: 15px 15px 10px -5px  black;
-    max-width: 50%;
-    min-width: 50%;
-    min-height: 240px;
-    max-height: 288px;
+    width: 50%;
+    padding: 25px;
     border: 1px solid black;
 }
 #botones{
@@ -46,4 +46,5 @@ button{
     box-shadow: 10px 10px 5px -5px  black;
     margin-bottom: 30px;
     cursor: default;
+    font-family:'Digital-7 Mono', sans-serif;
 }

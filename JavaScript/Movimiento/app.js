@@ -24,15 +24,15 @@ let intervalo;
 //control de tiempo al pulsar 
 window.addEventListener("load",()=>{
     if (!intervalo){
-        intervalo = setInterval(mover,25)
+        intervalo = setInterval(mover,50)
     }
 })
 
 //funcion para mover
 function mover(){
     if (condicionX == false && condicionY == false) {
-        X += 5;
-        Y += 5;
+        X += 2;
+        Y += 2;
 
         sprite.style.marginLeft = X + "px";
         sprite.style.marginTop = Y + "px";
@@ -40,8 +40,8 @@ function mover(){
         borde();
     }
     if (condicionX == true && condicionY == false) {
-        X -= 5;
-        Y += 5;
+        X -= 2;
+        Y += 2;
 
         sprite.style.marginLeft = X + "px";
         sprite.style.marginTop = Y + "px";
@@ -50,8 +50,8 @@ function mover(){
     }
 
     if(condicionX == false && condicionY == true) {
-        X += 5;
-        Y -= 5;
+        X += 2;
+        Y -= 2;
 
         sprite.style.marginLeft = X + "px";
         sprite.style.marginTop = Y + "px";
@@ -60,8 +60,8 @@ function mover(){
     }
 
     if (condicionX == true && condicionY == true) {
-        X -= 5;
-        Y -= 5;
+        X -= 2;
+        Y -= 2;
 
         sprite.style.marginLeft = X + "px";
         sprite.style.marginTop = Y + "px";
