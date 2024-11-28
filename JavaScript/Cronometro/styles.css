@@ -1,0 +1,49 @@
+body{
+    justify-content: center;
+    display: flex;
+
+    background-color: darkgray;
+}
+div{
+    justify-content: center;
+    display: flex;
+}
+#container{
+    background-color: gray;
+    border-radius: 25px;
+    flex-direction: column;
+    box-shadow: 15px 15px 10px -5px  black;
+    max-width: 50%;
+    min-width: 50%;
+    min-height: 240px;
+    max-height: 288px;
+    border: 1px solid black;
+}
+#botones{
+    flex-direction: row;
+    margin-top: 0.5%;
+}
+button{
+    margin: 10px;
+    padding: 10px;
+    background-color: lightgray;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px -5px  black;
+    cursor: pointer;
+}
+#cronometro{
+    position: sticky;
+    width: 50px;
+    align-self: center;
+    padding: 25px;
+    text-align: center;
+    color: black;
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px -5px  black;
+    margin-bottom: 30px;
+    cursor: default;
+}
