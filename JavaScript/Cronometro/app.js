@@ -2,10 +2,14 @@ const start=document.getElementById("start");
 const para=document.getElementById("stop");
 const reset=document.getElementById("reset");
 const crono=document.getElementById("cronometro");
+const mult=document.getElementById("multiplicador");
+const mostrarMult=document.getElementById("mostrarMult");
 
 let hours=0;
 let mins=0;
 let secs=0;
+
+let milliseconds=1000;
 
 let intervalo;
 
@@ -25,7 +29,7 @@ start.addEventListener("click", ()=>{
                 mins=0;
                 imprime();
             }
-        }, 1000 )
+        }, milliseconds )
     }
 })
 
@@ -45,3 +49,8 @@ reset.addEventListener("click", ()=>{
 function imprime(){   
     crono.innerHTML=hours.toString().padStart(2,"0")+":"+mins.toString().padStart(2,"0")+":"+secs.toString().padStart(2,"0");
 }
+
+mult.addEventListener("input", ()=>{
+    milliseconds=1000/mult.value;
+    mostrarMult.innerHTML=mult.value;
+})

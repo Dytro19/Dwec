@@ -9,6 +9,7 @@ body{
 div{
     justify-content: center;
     display: flex;
+    text-align: center;
 }
 #container{
     background-color: gray;
@@ -47,4 +48,16 @@ button{
     margin-bottom: 30px;
     cursor: default;
     font-family:'Digital-7 Mono', sans-serif;
+}
+
+#rango{
+    flex-direction: column;
+    text-align: center;
+    padding: 0px;
+}
+#multiplicador{
+    padding-bottom: 0px;
+}
+#mostrarMult{
+    padding: 0px;
 }
