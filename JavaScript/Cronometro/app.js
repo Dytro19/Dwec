@@ -8,8 +8,9 @@ let mins=0;
 let secs=0;
 
 let intervalo;
-if (!intervalo){
-    start.addEventListener("click", ()=>{
+
+start.addEventListener("click", ()=>{
+    if (!intervalo){
         intervalo=setInterval(()=>{
             secs+=1;        
             imprime();
@@ -25,11 +26,13 @@ if (!intervalo){
                 imprime();
             }
         }, 1000 )
-    })
-}
+    }
+})
+
 
 para.addEventListener("click", ()=>{
     clearInterval(intervalo);
+    intervalo=null;
 })
 
 reset.addEventListener("click", ()=>{
