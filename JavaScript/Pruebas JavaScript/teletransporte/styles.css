@@ -1,0 +1,21 @@
+#container{
+    display: flex;
+    width: 90%;
+    height: 500px;
+    background-color: #ffccbb;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: aqua;
+    border: 2px solid black;
+    border-radius: 10px;
+    
+}
