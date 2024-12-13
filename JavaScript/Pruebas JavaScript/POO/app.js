@@ -1,18 +1,14 @@
-let nivel;
+
 //Tus pokemon
 let equipo=[];
 
 //Los pokemon de tu rival
 let rivales=[];
 
-//Ataques de todos los pokemon porque no tengo base de datos
-const RAYO=90*nivel/50;
-const LLAMARADA=110*nivel/50;
-
-const ATAQUES=[RAYO, LLAMARADA];
+//Almacenamiento Pokemon
+let pc=[];
 
 class Pokemons{
-    
     constructor(nombre, nivel) {
         this.nombre=nombre;
         this.nivel=nivel;
@@ -21,9 +17,10 @@ class Pokemons{
     }
 
     ataca(pokemon, ataque){
+        this.potenciaTotal = ataque.potencia * this.nivel / 50;
         if (pokemon.hp>0){
-            pokemon.hp-=ataque;
-            console.log(this.nombre+" le ha quitado "+ataque+" hp a "+pokemon.nombre);
+            pokemon.hp-=this.potenciaTotal;
+            console.log(this.nombre+" le ha quitado "+this.potenciaTotal+" hp a "+pokemon.nombre);
             if(pokemon.hp<=0){
                 this.debilitar()
             }
@@ -32,6 +29,14 @@ class Pokemons{
 
     debilitar(){
         //Este método se sobrescribe en las clases
+    }
+}
+
+class Ataques{
+    constructor(nombre, potencia){
+        this.nombre=nombre;
+        this.potencia=potencia;
+        //this.potenciaTotal=potencia*Pokemons.nivel/50;
     }
 }
 
@@ -59,12 +64,14 @@ class Rivales extends Pokemons{
     } 
 }
 
-let pikachu = new Equipo("Pikachu", 5);
-let reshiram = new Rivales("Reshiram", 100);
+let rayo= new Ataques("Rayo", 90);
 
-pikachu.ataca(reshiram, ATAQUES[1]);
+let pikachu = new Equipo("Pikachu", 10);
+let reshiram = new Rivales("Reshiram", 15);
+
+pikachu.ataca(reshiram, rayo);
 console.log(reshiram.hp);
-pikachu.ataca(reshiram, 5);
+pikachu.ataca(reshiram, rayo);
 console.log(reshiram.hp);
 
 console.log(rivales);
