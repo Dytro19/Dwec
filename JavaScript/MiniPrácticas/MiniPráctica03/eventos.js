@@ -8,21 +8,25 @@ document.addEventListener("keydown", (event)=>{
     switch(event.key){
         case "ArrowRight":
         case "d":
+        case "D":
             posX+=10;
             uno.style.marginLeft=posX+"px";
             break;
         case "ArrowDown":
         case "s":
+        case "S":
             posY+=10;
             uno.style.marginTop=posY+"px";
             break;
         case "ArrowLeft":
         case "a":
+        case "A":
             posX-=10;
             uno.style.marginLeft=posX+"px";
             break;
         case "ArrowUp":
         case "w":
+        case "W":
             posY-=10;
             uno.style.marginTop=posY+"px";
             break;
