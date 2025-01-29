@@ -1,0 +1,22 @@
+body{
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    border: #ffffff 1px solid;
+    margin: 50px auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Ajusta el relleno interno */
+    width: 80%; /* Ajusta el ancho del contenedor */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
+    height: 600px; /* Ajusta la altura del contenedor */
+}
+.hormiga {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('hormiga.png'); /* Imagen de la hormiga */
+    background-size: cover;
+}

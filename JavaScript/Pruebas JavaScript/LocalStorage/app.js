@@ -7,3 +7,4 @@ console.log(localStorage.getItem('apellido'));
 console.log(localStorage.getItem('edad'));
 
 localStorage.removeItem('edad');
+
