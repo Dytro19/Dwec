@@ -10,9 +10,10 @@ class Hormiga {
     }
 
     establecerPosicion() {
-        const rectanguloContenedor = this.contenedor.getBoundingClientRect();
-        const x = Math.random() * (rectanguloContenedor.width - this.elemento.offsetWidth);
-        const y = Math.random() * (rectanguloContenedor.height - this.elemento.offsetHeight);
+        const anchoContenedor = this.contenedor.offsetWidth;
+        const altoContenedor = this.contenedor.offsetHeight;
+        const x = Math.random() * (anchoContenedor - this.elemento.offsetWidth);
+        const y = Math.random() * (altoContenedor - this.elemento.offsetHeight);
         this.elemento.style.left = `${x}px`;
         this.elemento.style.top = `${y}px`;
     }
@@ -26,11 +27,12 @@ class Hormiga {
 
     mover() {
         setInterval(() => {
-            const rectanguloContenedor = this.contenedor.getBoundingClientRect();
-            const deltaX = (Math.random() - 0.5) * 20; // Movimiento menor en el eje X
-            const deltaY = (Math.random() - 0.5) * 20; // Movimiento menor en el eje Y
-            const nuevaX = Math.min(Math.max(parseFloat(this.elemento.style.left) + deltaX, 0), rectanguloContenedor.width - this.elemento.offsetWidth);
-            const nuevaY = Math.min(Math.max(parseFloat(this.elemento.style.top) + deltaY, 0), rectanguloContenedor.height - this.elemento.offsetHeight);
+            const anchoContenedor = this.contenedor.offsetWidth;
+            const altoContenedor = this.contenedor.offsetHeight;
+            const X = (Math.random() - 0.5) * 20; // Movimiento menor en el eje X
+            const Y = (Math.random() - 0.5) * 20; // Movimiento menor en el eje Y
+            const nuevaX = Math.min(Math.max(parseFloat(this.elemento.style.left) + X, 0), anchoContenedor - this.elemento.offsetWidth);
+            const nuevaY = Math.min(Math.max(parseFloat(this.elemento.style.top) + Y, 0), altoContenedor - this.elemento.offsetHeight);
             this.elemento.style.left = `${nuevaX}px`;
             this.elemento.style.top = `${nuevaY}px`;
         }, 100);
@@ -38,7 +40,7 @@ class Hormiga {
 }
 
 // Ejemplo de uso
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const contenedor = document.getElementById('container');
     if (contenedor) {
         for (let i = 0; i < 5; i++) {
