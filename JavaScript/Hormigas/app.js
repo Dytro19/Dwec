@@ -1,3 +1,4 @@
+var contador=0;
 class Hormiga {
     constructor(contenedor) {
         this.contenedor = contenedor;
@@ -29,13 +30,31 @@ class Hormiga {
         setInterval(() => {
             const anchoContenedor = this.contenedor.offsetWidth;
             const altoContenedor = this.contenedor.offsetHeight;
-            const X = (Math.random() - 0.5) * 20; // Movimiento menor en el eje X
-            const Y = (Math.random() - 0.5) * 20; // Movimiento menor en el eje Y
+            const X = (Math.random()+0) * 5; // Movimiento menor en el eje X
+            const Y = (Math.random()+0) * 5; // Movimiento menor en el eje Y
             const nuevaX = Math.min(Math.max(parseFloat(this.elemento.style.left) + X, 0), anchoContenedor - this.elemento.offsetWidth);
             const nuevaY = Math.min(Math.max(parseFloat(this.elemento.style.top) + Y, 0), altoContenedor - this.elemento.offsetHeight);
             this.elemento.style.left = `${nuevaX}px`;
             this.elemento.style.top = `${nuevaY}px`;
+            contador++;
+            clearInterval();
         }, 100);
+
+        if (contador==50){
+            setInterval(() => {
+                const anchoContenedor = this.contenedor.offsetWidth;
+                const altoContenedor = this.contenedor.offsetHeight;
+                const X = (Math.random() - 1) * 5; // Movimiento menor en el eje X
+                const Y = (Math.random() - 1) * 5; // Movimiento menor en el eje Y
+                const nuevaX = Math.min(Math.max(parseFloat(this.elemento.style.left) + X, 0), anchoContenedor - this.elemento.offsetWidth);
+                const nuevaY = Math.min(Math.max(parseFloat(this.elemento.style.top) + Y, 0), altoContenedor - this.elemento.offsetHeight);
+                this.elemento.style.left = `${nuevaX}px`;
+                this.elemento.style.top = `${nuevaY}px`;
+                contador=0;
+                clearInterval();
+            }, 100);
+            
+        }
     }
 }
 
