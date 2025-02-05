@@ -37,11 +37,6 @@ class Hormiga {
                 const nuevaY = Math.min(Math.max(parseFloat(this.elemento.style.top) + this.direccionY, 0), altoContenedor - this.elemento.offsetHeight);
                 this.elemento.style.left = `${nuevaX}px`;
                 this.elemento.style.top = `${nuevaY}px`;
-    
-                if (Math.random() < 0.1) {
-                    this.direccionX = (Math.random() - 0.5) * 2;
-                    this.direccionY = (Math.random() - 0.5) * 2;
-                }
             }, 19);
         }
         
