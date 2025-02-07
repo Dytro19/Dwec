@@ -6,7 +6,7 @@ body{
 }
 .container{
     border: #ffffff 1px solid;
-    margin: 50px auto; /* Centra el contenedor horizontalmente */
+    margin: 50px 50px 50px 50px; /* Centra el contenedor horizontalmente */
     padding: 20px; /* Ajusta el relleno interno */
     width: 80%; /* Ajusta el ancho del contenedor */
     max-width: 1200px; /* Ancho máximo del contenedor */
@@ -15,8 +15,8 @@ body{
 }
 .hormiga {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-image: url('hormiga.png'); /* Imagen de la hormiga */
+    width: 30px;
+    height: 30px;
+    background-image: url('hormigas.jpg'); /* Imagen de la hormiga */
     background-size: cover;
 }
