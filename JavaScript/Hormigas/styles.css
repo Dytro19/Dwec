@@ -17,6 +17,6 @@ body{
     position: absolute;
     width: 30px;
     height: 30px;
-    background-image: url('hormigas.jpg'); /* Imagen de la hormiga */
+    background-image: url('https://pokemondb.net/pokedex/pikachu'); /* Imagen de la hormiga */
     background-size: cover;
 }
