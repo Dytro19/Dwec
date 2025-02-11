@@ -15,8 +15,43 @@ body{
 }
 .hormiga {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-image: url('https://pokemondb.net/pokedex/pikachu'); /* Imagen de la hormiga */
+    width: 40px;
+    height: 40px;
+    background-image: url('raichu.png'); /* Imagen de la hormiga */
     background-size: cover;
+    border-radius: 50%;
+}
+#contador{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+#final{
+    color: #d70000;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+    display: none;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background-color: rgba(131, 131, 131, 0.5);
+    z-index: 1;
+}
+#ganaste {
+    color: #00d700;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+    display: none;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background-color: rgba(131, 131, 131, 0.5);
+    z-index: 1;
 }

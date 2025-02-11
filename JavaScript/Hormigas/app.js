@@ -1,11 +1,16 @@
-var intervalo = null;
-var cantClicks = 0;
+let hormigas = [];
+
 class Hormiga {
     constructor(contenedor) {
         this.contenedor = contenedor;
         this.elemento = document.createElement('div');
         this.elemento.className = 'hormiga';
         this.contenedor.appendChild(this.elemento);
+
+        this.cantClicks = 0;
+        this.capturado = false;
+        this.intervalo;
+
         this.establecerPosicion();
         this.asignarColor();
         this.direccionX = (Math.random() - 0.5) * 2; // Dirección inicial en el eje X
@@ -13,9 +18,10 @@ class Hormiga {
         this.mover();
         this.cambiarDireccion();
         this.detectarColision();
+
         if (this.contenedor) {
             this.elemento.addEventListener('click', () => {
-                this.eliminar();
+                this.cambioImagen();
                 this.asignarColor();
             });
         }
@@ -44,25 +50,31 @@ class Hormiga {
     }
 
     mover() {
-        setInterval(() => {
-            const anchoContenedor = this.contenedor.clientWidth;
-            const altoContenedor = this.contenedor.clientHeight;
-            let nuevaX = parseFloat(this.elemento.style.left) + this.direccionX;
-            let nuevaY = parseFloat(this.elemento.style.top) + this.direccionY;
+        if (this.capturado == false || !this.intervalo){
+            this.intervalo = setInterval(() => {
+                const anchoContenedor = this.contenedor.clientWidth;
+                const altoContenedor = this.contenedor.clientHeight;
+                let nuevaX = parseFloat(this.elemento.style.left) + this.direccionX;
+                let nuevaY = parseFloat(this.elemento.style.top) + this.direccionY;
+    
+                // Verificar límites del contenedor y ajustar dirección si es necesario
+                if (nuevaX <= 0 || nuevaX >= anchoContenedor - this.elemento.offsetWidth) {
+                    this.direccionX *= -1; // Cambiar dirección en el eje X
+                    nuevaX = Math.min(Math.max(nuevaX, 0), anchoContenedor - this.elemento.offsetWidth);
+                }
+                if (nuevaY <= 0 || nuevaY >= altoContenedor - this.elemento.offsetHeight) {
+                    this.direccionY *= -1; // Cambiar dirección en el eje Y
+                    nuevaY = Math.min(Math.max(nuevaY, 0), altoContenedor - this.elemento.offsetHeight);
+                }
+    
+                this.elemento.style.left = `${nuevaX}px`;
+                this.elemento.style.top = `${nuevaY}px`;
+            }, 19);    
+        }
+    }
 
-            // Verificar límites del contenedor y ajustar dirección si es necesario
-            if (nuevaX <= 0 || nuevaX >= anchoContenedor - this.elemento.offsetWidth) {
-                this.direccionX *= -1; // Cambiar dirección en el eje X
-                nuevaX = Math.min(Math.max(nuevaX, 0), anchoContenedor - this.elemento.offsetWidth);
-            }
-            if (nuevaY <= 0 || nuevaY >= altoContenedor - this.elemento.offsetHeight) {
-                this.direccionY *= -1; // Cambiar dirección en el eje Y
-                nuevaY = Math.min(Math.max(nuevaY, 0), altoContenedor - this.elemento.offsetHeight);
-            }
-
-            this.elemento.style.left = `${nuevaX}px`;
-            this.elemento.style.top = `${nuevaY}px`;
-        }, 19);
+    detener() {
+        clearInterval(this.intervalo);
     }
 
     cambiarDireccion() {
@@ -89,21 +101,56 @@ class Hormiga {
         }, 19);
     }
 
-    // Método para eliminar la hormiga con clicks
-    eliminar() {
-        cantClicks++;
-        if (cantClicks == 3) {
-            this.contenedor.removeChild(this.elemento);
-            cantClicks = 0;
+    cambioImagen() {
+        this.cantClicks++;
+        if (this.cantClicks == 1) {
+            this.elemento.style.backgroundImage = "url('pikachu.png')";
+        }
+        if (this.cantClicks == 2) {
+            this.elemento.style.backgroundImage = "url('pichu.png')";
+        }
+        if (this.cantClicks == 3) {
+            this.elemento.style.backgroundImage = "url('pokeball.png')";
+            this.capturado = true;
+            clearInterval(this.intervalo);
+            this.verificarGanador();
+        }
+    }
+
+    verificarGanador() {
+        if (hormigas.every(hormiga => hormiga.capturado)) {
+            document.getElementById("ganaste").style.display = "block";
+            detenerHormigas();
+            clearInterval(crono);
         }
     }
 }
 
+function detenerHormigas() {
+    hormigas.forEach(hormiga => hormiga.detener());
+}
+
+contador = 15;
+
 window.addEventListener('load', () => {
     const contenedor = document.getElementById('container');
+
     if (contenedor) {
         for (let i = 0; i < 5; i++) {
-            new Hormiga(contenedor);
+            const hormiga = new Hormiga(contenedor);
+            hormigas.push(hormiga);
         }
     }
+    
+    document.getElementById("contador").innerHTML = "Tiempo restante: "+ contador;
+    crono = setInterval(() => {
+        contador--;
+        document.getElementById("contador").innerHTML = "Tiempo restante: "+ contador;
+        if (contador <= 0){
+            clearInterval(crono);
+            document.getElementById("final").style.display = "block";
+            detenerHormigas();
+        }    
+    }, 1000); 
+
 });
