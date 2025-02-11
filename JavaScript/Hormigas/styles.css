@@ -15,8 +15,8 @@ body{
 }
 .hormiga {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-image: url('raichu.png'); /* Imagen de la hormiga */
     background-size: cover;
     border-radius: 50%;
@@ -25,7 +25,7 @@ body{
     color: #ffffff;
     font-size: 20px;
     font-weight: bold;
-    text-align: center;
+    margin-left: 51px
 }
 #final{
     color: #d70000;
