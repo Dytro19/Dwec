@@ -1,0 +1,15 @@
+{
+  "name": "chuck-norris-api-project",
+  "version": "1.0.0",
+  "description": "A simple project that fetches random jokes from the Chuck Norris API.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "live-server src",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
