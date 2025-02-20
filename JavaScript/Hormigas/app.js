@@ -138,10 +138,13 @@ window.addEventListener('load', () => {
     if (contenedor) {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         for (let i = 0; i < 5; i++) {
             const hormiga = new Hormiga(contenedor);
             hormigas.push(hormiga);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         for (let i = 0; i < 20; i++) {
